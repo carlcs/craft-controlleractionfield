@@ -1,0 +1,49 @@
+{% import '_includes/forms' as forms %}
+
+{{ forms.textField({
+    label: 'Action Path'|t,
+    instructions: 'The action path to the controller action.'|t,
+    id: 'actionPath',
+    name: 'actionPath',
+    value: settings.actionPath,
+    errors: settings.getErrors('actionPath'),
+    required: true,
+}) }}
+
+{{ forms.textareaField({
+    label: 'POST Data'|t,
+    instructions: 'The POST data send to the controller. Define a “data” variable using Twig language, the element this field is added to is available via an “object” variable.'|t,
+    id: 'postData',
+    class: 'code',
+    name: 'postData',
+    value: settings.postData,
+    rows: 10,
+    errors: settings.getErrors('postData'),
+}) }}
+
+{{ forms.textField({
+    label: 'Button Label'|t,
+    id: 'buttonLabel',
+    name: 'buttonLabel',
+    value: settings.buttonLabel,
+    placeholder: placeholders.buttonLabel,
+    errors: settings.getErrors('buttonLabel'),
+}) }}
+
+{{ forms.textField({
+    label: 'Success Message'|t,
+    id: 'successMessage',
+    name: 'successMessage',
+    value: settings.successMessage,
+    placeholder: placeholders.successMessage,
+    errors: settings.getErrors('successMessage'),
+}) }}
+
+{{ forms.textField({
+    label: 'Error Message'|t,
+    id: 'errorMessage',
+    name: 'errorMessage',
+    value: settings.errorMessage,
+    placeholder: placeholders.errorMessage,
+    errors: settings.getErrors('errorMessage'),
+}) }}

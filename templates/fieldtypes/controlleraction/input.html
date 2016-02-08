@@ -1,0 +1,17 @@
+<div class="controlleractionfield">
+    <div class="controlleraction btn">{{ settings.buttonLabel ? settings.buttonLabel|t : placeholders.buttonLabel|t }}</div>
+    <div class="spinner hidden"></div>
+</div>
+
+{% set jsSettings = {
+    id: id|namespaceInputId,
+    name: name|namespaceInputName,
+    actionPath: settings.actionPath,
+    postData: postData,
+    successMessage: settings.successMessage ? settings.successMessage|t : placeholders.successMessage|t,
+    errorMessage: settings.errorMessage ? settings.errorMessage|t : placeholders.errorMessage|t,
+} %}
+
+{% includejs %}
+    new Craft.ControllerActionInput({{ jsSettings|json_encode|raw }});
+{% endincludejs %}
